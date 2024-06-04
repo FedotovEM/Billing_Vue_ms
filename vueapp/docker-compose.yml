@@ -2,11 +2,11 @@ version: '3.4'
 
 services:
   vueapp:
-    image: vue-app
+    image: rgrty-vue-app
     build:
       context: ./
       dockerfile: ./Dockerfile
-    container_name: vue-app
+    container_name: rgrty-vue-app
     restart: 'no'
     ports:
       - 3000:80

@@ -2,11 +2,11 @@ version: '3.4'
 
 services:
   repairrequestsservice:
-    image: repair-requests-service
+    image: rgrty-repair-requests-service
     build:
       context: ./
       dockerfile: ./Dockerfile
-    container_name: repair-requests-service
+    container_name: rgrty-repair-requests-service
     restart: 'no'    
     ports:
       - 5278:80

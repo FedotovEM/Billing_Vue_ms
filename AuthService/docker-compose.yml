@@ -2,11 +2,11 @@ version: '3.4'
 
 services:
   authservice:
-    image: auth-service
+    image: rgrty-auth-service
     build:
       context: ./
       dockerfile: ./Dockerfile
-    container_name: auth-service
+    container_name: rgrty-auth-service
     restart: 'always'    
     ports:
       - 5089:80

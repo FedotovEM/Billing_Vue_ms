@@ -2,11 +2,11 @@ version: '3.4'
 
 services:
   nachislservice:
-    image: nachisl-service
+    image: rgrty-nachisl-service
     build:
       context: ./
       dockerfile: ./Dockerfile
-    container_name: nachisl-service
+    container_name: rgrty-nachisl-service
     restart: 'no'    
     ports:
       - 5100:80

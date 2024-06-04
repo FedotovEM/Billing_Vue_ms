@@ -2,11 +2,11 @@ version: '3.4'
 
 services:
   payservice:
-    image: pay-service
+    image: rgrty-pay-service
     build:
       context: ./
       dockerfile: ./Dockerfile
-    container_name: pay-service
+    container_name: rgrty-pay-service
     restart: 'no'    
     ports:
       - 5215:80

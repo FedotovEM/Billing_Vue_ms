@@ -2,10 +2,10 @@ version: '3.4'
 
 services:
   WorkerServiceNachislenie:
-    image: worker-service-nachislenie
+    image: rgrty-worker-service-nachislenie
     build:
       context: ./
       dockerfile: ./Dockerfile
-    container_name: worker-service-nachislenie
+    container_name: rgrty-worker-service-nachislenie
     restart: 'no'
     
