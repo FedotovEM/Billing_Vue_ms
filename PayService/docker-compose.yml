@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  payservice:
+    image: pay-service
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: pay-service
+    restart: 'no'    
+    ports:
+      - 5215:80
+    

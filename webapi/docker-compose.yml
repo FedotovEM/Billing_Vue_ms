@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  abonentdataaccountingservice:
+    image: abonent-data-accounting-service
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: abonent-data-accounting-service
+    restart: always    
+    ports:
+      - 7066:80
+    

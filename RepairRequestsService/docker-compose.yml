@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  repairrequestsservice:
+    image: repair-requests-service
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: repair-requests-service
+    restart: 'no'    
+    ports:
+      - 5278:80
+    

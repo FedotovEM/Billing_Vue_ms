@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  WorkerServiceNachislenie:
+    image: worker-service-nachislenie
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: worker-service-nachislenie
+    restart: 'no'
+    
