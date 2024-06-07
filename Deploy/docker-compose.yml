@@ -18,6 +18,8 @@ services:
     restart: always    
     ports:
       - 7066:80
+    networks:
+      - rgrty-billing-docker-net
 
   vueapp:
     image: rgrty-vue-app
@@ -28,6 +30,8 @@ services:
     restart: 'no'
     ports:
       - 3000:80
+    networks:
+      - rgrty-billing-docker-net
   
   repairrequestsservice:
     image: rgrty-repair-requests-service
@@ -38,6 +42,8 @@ services:
     restart: 'no'    
     ports:
       - 5278:80
+    networks:
+      - rgrty-billing-docker-net
   
   payservice:
     image: rgrty-pay-service
@@ -48,6 +54,8 @@ services:
     restart: 'no'    
     ports:
       - 5215:80
+    networks:
+      - rgrty-billing-docker-net
   
   nachislservice:
     image: rgrty-nachisl-service
@@ -58,6 +66,8 @@ services:
     restart: 'no'    
     ports:
       - 5100:80
+    networks:
+      - rgrty-billing-docker-net
   
   authservice:
     image: rgrty-auth-service
@@ -68,5 +78,11 @@ services:
     restart: 'always'    
     ports:
       - 5089:80
+    networks:
+      - rgrty-billing-docker-net
+
+networks:
+    rgrty-billing-docker-net:
+        driver: bridge
     
   

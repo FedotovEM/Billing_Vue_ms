@@ -67,7 +67,7 @@ namespace NachislService.Controllers
                             && r.ServiceCd == model.ServiceCd);
 
                 model.AccountCd = item.Key.AccountCd;
-                PayResponseHist payMonthResult = await SenderByURL.SendHTTPRequest<OSVEachAbonentRequest>(model, _payServiceURL + "/pays/pays-each-abonent");
+                PayResponseHist payMonthResult = await SenderByURL.SendHTTPRequest<OSVEachAbonentRequest>(model, _payServiceURL + "/api/pays/pays-each-abonent");
 
                 var abonent = _context.Abonents.FirstOrDefault(a => a.AccountCd == item.Key.AccountCd);
                 var street = _context.Streets.FirstOrDefault(s => s.StreetCd == abonent.StreetCd);

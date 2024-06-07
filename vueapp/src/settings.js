@@ -1,7 +1,7 @@
 export const urls = {
-    webapi: 'http://localhost:7066/api',
-    authServ: 'http://localhost:5089/api',
-    payServ: 'http://localhost:5215/api',
-    nachServ: 'http://localhost:5100/api',
-    RepairReqServ: 'http://localhost:5278/api'
+    webapi: 'abonentdataaccountingservice:80/api',
+    authServ: 'authservice:80/api',
+    payServ: 'payservice:80/api',
+    nachServ: 'nachislservice:80/api',
+    RepairReqServ: 'repairrequestsservice:80/api'
 };

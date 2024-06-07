@@ -166,7 +166,7 @@ namespace NachislService.Controllers
                     AccountCd = model.AccountCd,
                 };
 
-                PayResponseHist payMonthResult = await SenderByURL.SendHTTPRequest<PayRequestHist>(PayRequestHist, _payServiceURL + "/pays/pays-abonent-hist");
+                PayResponseHist payMonthResult = await SenderByURL.SendHTTPRequest<PayRequestHist>(PayRequestHist, _payServiceURL + "/api/pays/pays-abonent-hist");
 
                 PayNachislHistory payNachislHistory = new PayNachislHistory()
                 {
