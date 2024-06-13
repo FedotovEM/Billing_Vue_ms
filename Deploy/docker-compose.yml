@@ -16,8 +16,6 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-abonent-data-accounting-service
     restart: 'no'    
-    ports:
-      - 7066:80
     networks:
       - rgrty-billing-docker-net
 
@@ -40,8 +38,6 @@ services:
       dockerfile: Dockerfile 
     container_name: rgrty-repair-requests-service
     restart: 'no'    
-    ports:
-      - 5278:80
     networks:
       - rgrty-billing-docker-net
   
@@ -51,9 +47,7 @@ services:
       context: ../PayService
       dockerfile: Dockerfile
     container_name: rgrty-pay-service
-    restart: 'no'    
-    ports:
-      - 5215:80
+    restart: 'no'   
     networks:
       - rgrty-billing-docker-net
   
@@ -63,9 +57,7 @@ services:
       context: ../NachislService
       dockerfile: Dockerfile
     container_name: rgrty-nachisl-service
-    restart: 'no'    
-    ports:
-      - 5100:80
+    restart: 'no'   
     networks:
       - rgrty-billing-docker-net
   
@@ -76,8 +68,6 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-auth-service
     restart: 'no'    
-    ports:
-      - 5089:80
     networks:
       - rgrty-billing-docker-net
 
