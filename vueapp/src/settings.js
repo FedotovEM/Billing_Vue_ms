@@ -1,7 +1,7 @@
 export const urls = {
-    webapi: 'abonentdataaccountingservice:80/api',
-    authServ: 'authservice:80/api',
-    payServ: 'payservice:80/api',
-    nachServ: 'nachislservice:80/api',
-    RepairReqServ: 'repairrequestsservice:80/api'
+    webapi: 'http://abonentdataaccountingservice:80/api',
+    authServ: 'http://authservice:80/api',
+    payServ: 'http://payservice:80/api',
+    nachServ: 'http://nachislservice:80/api',
+    RepairReqServ: 'http://repairrequestsservice:80/api'
 };
