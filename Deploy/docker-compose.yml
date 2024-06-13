@@ -4,18 +4,18 @@ services:
   WorkerServiceNachislenie:
     image: rgrty-worker-service-nachislenie
     build:
-      context: ../..
-      dockerfile: ./Billing_Vue_ms/WorkerService_Nachislenie/Dockerfile
+      context: ../WorkerService_Nachislenie
+      dockerfile: Dockerfile
     container_name: rgrty-worker-service-nachislenie
     restart: 'no'
 
   abonentdataaccountingservice:
     image: rgrty-abonent-data-accounting-service
     build:
-      context: ../..
-      dockerfile: ./Billing_Vue_ms/webapi/Dockerfile
+      context: ../webapi
+      dockerfile: Dockerfile
     container_name: rgrty-abonent-data-accounting-service
-    restart: always    
+    restart: 'no'    
     ports:
       - 7066:80
     networks:
@@ -24,8 +24,8 @@ services:
   vueapp:
     image: rgrty-vue-app
     build:
-      context: ../..
-      dockerfile: ./Billing_Vue_ms/vueapp/Dockerfile
+      context: ../vueapp
+      dockerfile: Dockerfile
     container_name: rgrty-vue-app
     restart: 'no'
     ports:
@@ -36,8 +36,8 @@ services:
   repairrequestsservice:
     image: rgrty-repair-requests-service
     build:
-      context: ../..
-      dockerfile: ./Billing_Vue_ms/RepairRequestsService/Dockerfile 
+      context: ../RepairRequestsService
+      dockerfile: Dockerfile 
     container_name: rgrty-repair-requests-service
     restart: 'no'    
     ports:
@@ -48,8 +48,8 @@ services:
   payservice:
     image: rgrty-pay-service
     build:
-      context: ../..
-      dockerfile: ./Billing_Vue_ms/PayService/Dockerfile
+      context: ../PayService
+      dockerfile: Dockerfile
     container_name: rgrty-pay-service
     restart: 'no'    
     ports:
@@ -60,8 +60,8 @@ services:
   nachislservice:
     image: rgrty-nachisl-service
     build:
-      context: ../..
-      dockerfile: ./Billing_Vue_ms/NachislService/Dockerfile
+      context: ../NachislService
+      dockerfile: Dockerfile
     container_name: rgrty-nachisl-service
     restart: 'no'    
     ports:
@@ -72,10 +72,10 @@ services:
   authservice:
     image: rgrty-auth-service
     build:
-      context: ../..
-      dockerfile: ./Billing_Vue_ms/AuthService/Dockerfile
+      context: ../AuthService
+      dockerfile: Dockerfile
     container_name: rgrty-auth-service
-    restart: 'always'    
+    restart: 'no'    
     ports:
       - 5089:80
     networks:
