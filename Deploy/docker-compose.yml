@@ -85,14 +85,6 @@ services:
     networks:
       - rgrty-billing-docker-net
   
-  nginx: 
-    image: nginx:latest
-    container_name: rgrty-nginx-proxy
-    volumes:
-      - ./vueapp/nginx.conf:/nginx.conf
-    networks:
-      - rgrty-billing-docker-net
-
 networks:
     rgrty-billing-docker-net:
         driver: bridge
