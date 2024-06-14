@@ -6,7 +6,7 @@ using PayService.Repository.Models;
 
 namespace PayService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/pays/[controller]")]
     [ApiController]
     public class ReceptionPointsController : ControllerBase
     {

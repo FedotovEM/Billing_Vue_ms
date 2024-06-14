@@ -13,7 +13,7 @@ using System.Text;
 
 namespace NachislService.Controllers
 {
-    [Route("api/nachisls")]
+    [Route("api/nachislenie/nachisls")]
     [ApiController]
     public class NachislController : ControllerBase
     {

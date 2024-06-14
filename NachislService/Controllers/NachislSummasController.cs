@@ -7,7 +7,7 @@ using NachislService.Repository.Models;
 
 namespace NachislService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/nachislenie/[controller]")]
     [ApiController]
     public class NachislSummasController : ControllerBase
     {

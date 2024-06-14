@@ -6,7 +6,7 @@ using RepairRequestsService.Repository.Models;
 
 namespace RepairRequestsService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/repairrequests/[controller]")]
     [ApiController]
     public class ExecutorsController : ControllerBase
     {

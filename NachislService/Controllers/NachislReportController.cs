@@ -6,7 +6,7 @@ using NachislService.Repository;
 
 namespace NachislService.Controllers
 {
-    [Route("api/reportnachisls")]
+    [Route("api/nachislenie/reportnachisls")]
     [ApiController]
     public class NachislReportController : ControllerBase
     {

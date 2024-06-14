@@ -64,7 +64,7 @@
     const abonentRemains = ref([])
     
     const postPayReq = async () => {
-        axios.post(urls.payServ + "/pays/search-abonent", payReq, { headers: authHeader() })
+        axios.post(urls.payServ + "/search-abonent", payReq, { headers: authHeader() })
             .then((response) => {
                 abonentRemains.value = response.data;
             })

@@ -84,7 +84,7 @@
     const typeList = ["фактический", "нормативный"];
 
     onMounted(() => {
-        axios.get(urls.payServ + `/pays/${route.params.id}`, { headers: authHeader() })
+        axios.get(urls.payServ + `/${route.params.id}`, { headers: authHeader() })
             .then((response) => {
                 newItem.accountCd = response.data.accountCd;
                 newItem.serviceName = response.data.serviceName;

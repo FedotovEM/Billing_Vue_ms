@@ -4,7 +4,7 @@ import { urls } from '../settings.js';
 class AuthService {
     login(user) {
         return axios
-            .post(urls.authServ + '/authorization/login', {
+            .post(urls.authServ + '/login', {
                 username: user.username,
                 password: user.password
             })
@@ -22,7 +22,7 @@ class AuthService {
     }
 
     register(user) {
-        return axios.post(urls.authServ + '/authorization/register', {
+        return axios.post(urls.authServ + '/register', {
             username: user.username,
             email: user.email,
             password: user.password

@@ -70,7 +70,7 @@
 
     const abonent = ref([])
     onMounted(() => {
-        axios.post(urls.payServ + "/pays/search-abonent", payReq, { headers: authHeader() })
+        axios.post(urls.payServ + "/search-abonent", payReq, { headers: authHeader() })
             .then((response) => {
                 abonent.value = response.data;
             })

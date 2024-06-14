@@ -43,7 +43,7 @@
                 newItem.countAbonent = response.data.countAbonent;;
                 newItem.countStreets = response.data.countStreets;
             });
-        axios.post(urls.payServ + "/pays/get-stat-count", { headers: authHeader() })
+        axios.post(urls.payServ + "/get-stat-count", { headers: authHeader() })
             .then((response) => {
                 newItem.countPays = response.data;
             })

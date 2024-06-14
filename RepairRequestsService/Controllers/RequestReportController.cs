@@ -9,7 +9,7 @@ using RepairRequestsService.Repository;
 
 namespace RepairRequestsService.Controllers
 {
-    [Route("api/reportreq")]
+    [Route("api/repairrequests/reportreq")]
     [ApiController]
     public class RequestReportController : ControllerBase
     {

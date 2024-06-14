@@ -15,10 +15,9 @@ services:
       context: ../webapi
       dockerfile: Dockerfile
     container_name: rgrty-abonent-data-accounting-service
-    restart: 'no'    
-    environment:
-      AuthService_URL: ${AuthService_URL}
-      PayService_URL: ${PayService_URL}
+    restart: 'no'
+    env_file:
+      - ".env"
     networks:
       - rgrty-billing-docker-net
 
@@ -29,12 +28,8 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-vue-app
     restart: 'no'
-    environment:
-      AbonentDataAccountingService_URL: ${AbonentDataAccountingService_URL}
-      AuthService_URL: ${AuthService_URL}
-      PayService_URL: ${PayService_URL}
-      NachislService_URL: ${NachislService_URL}
-      RepairReqService_URL: ${RepairReqService_URL}
+    env_file:
+      - ".env"
     ports:
       - 3000:80
     networks:
@@ -47,8 +42,8 @@ services:
       dockerfile: Dockerfile 
     container_name: rgrty-repair-requests-service
     restart: 'no'       
-    environment:
-      AuthService_URL: ${AuthService_URL} 
+    env_file:
+      - ".env"
     networks:
       - rgrty-billing-docker-net
   
@@ -59,8 +54,8 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-pay-service
     restart: 'no'       
-    environment:
-      AuthService_URL: ${AuthService_URL}
+    env_file:
+      - ".env"
     networks:
       - rgrty-billing-docker-net
   
@@ -71,9 +66,8 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-nachisl-service
     restart: 'no'
-    environment:
-      AuthService_URL: ${AuthService_URL}
-      PayService_URL: ${PayService_URL}   
+    env_file:
+      - ".env"
     networks:
       - rgrty-billing-docker-net
   
@@ -83,9 +77,19 @@ services:
       context: ../AuthService
       dockerfile: Dockerfile
     container_name: rgrty-auth-service
-    restart: 'no'    
+    restart: 'no'
+    env_file:
+      - ".env"
     environment:
       AbonentDataAccountingService_URL: ${AbonentDataAccountingService_URL}
+    networks:
+      - rgrty-billing-docker-net
+  
+  nginx: 
+    image: nginx:latest
+    container_name: rgrty-nginx-proxy
+    volumes:
+      - ./vueapp/nginx.conf:/nginx.conf
     networks:
       - rgrty-billing-docker-net
 
