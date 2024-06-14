@@ -5,7 +5,7 @@ namespace PayService.Helpers
     public class JwtMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly string _authProjectUrl = ConfigurationHelper.GetSectionValue("AuthServiceUrl");
+        private readonly string _authProjectUrl = Environment.GetEnvironmentVariable("AuthService_URL");
 
         public JwtMiddleware(RequestDelegate next)
         {

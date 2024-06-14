@@ -16,6 +16,9 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-abonent-data-accounting-service
     restart: 'no'    
+    environment:
+      AuthService_URL: ${AuthService_URL}
+      PayService_URL: ${PayService_URL}
     networks:
       - rgrty-billing-docker-net
 
@@ -26,6 +29,12 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-vue-app
     restart: 'no'
+    environment:
+      AbonentDataAccountingService_URL: ${AbonentDataAccountingService_URL}
+      AuthService_URL: ${AuthService_URL}
+      PayService_URL: ${PayService_URL}
+      NachislService_URL: ${NachislService_URL}
+      RepairReqService_URL: ${RepairReqService_URL}
     ports:
       - 3000:80
     networks:
@@ -37,7 +46,9 @@ services:
       context: ../RepairRequestsService
       dockerfile: Dockerfile 
     container_name: rgrty-repair-requests-service
-    restart: 'no'    
+    restart: 'no'       
+    environment:
+      AuthService_URL: ${AuthService_URL} 
     networks:
       - rgrty-billing-docker-net
   
@@ -47,7 +58,9 @@ services:
       context: ../PayService
       dockerfile: Dockerfile
     container_name: rgrty-pay-service
-    restart: 'no'   
+    restart: 'no'       
+    environment:
+      AuthService_URL: ${AuthService_URL}
     networks:
       - rgrty-billing-docker-net
   
@@ -57,7 +70,10 @@ services:
       context: ../NachislService
       dockerfile: Dockerfile
     container_name: rgrty-nachisl-service
-    restart: 'no'   
+    restart: 'no'
+    environment:
+      AuthService_URL: ${AuthService_URL}
+      PayService_URL: ${PayService_URL}   
     networks:
       - rgrty-billing-docker-net
   
@@ -68,6 +84,8 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-auth-service
     restart: 'no'    
+    environment:
+      AbonentDataAccountingService_URL: ${AbonentDataAccountingService_URL}
     networks:
       - rgrty-billing-docker-net
 

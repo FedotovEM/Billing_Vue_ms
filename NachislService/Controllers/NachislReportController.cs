@@ -12,7 +12,7 @@ namespace NachislService.Controllers
     {
         private readonly BillingDbContext _context;
         private readonly IConfiguration _configuration;
-        private readonly string _payServiceURL = ConfigurationHelper.GetSectionValue("PayServiceURL");
+        private readonly string _payServiceURL = Environment.GetEnvironmentVariable("PayService_URL");
 
         public NachislReportController(BillingDbContext context, IConfiguration configuration)
         {

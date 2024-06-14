@@ -16,8 +16,8 @@ namespace AuthService.Helpers
         public static SecurityToken generateJWTToken(string Login, string Role)
         {
             var secretKey = ConfigurationHelper.GetSectionValue("Jwt:Key");
-            var issuer = ConfigurationHelper.GetSectionValue("Jwt:Issuer");
-            var audience = ConfigurationHelper.GetSectionValue("Jwt:Audience");
+            var issuer = Environment.GetEnvironmentVariable("AbonentDataAccountingService_URL");
+            var audience = Environment.GetEnvironmentVariable("AbonentDataAccountingService_URL");
 
             var claims = new[]
             {
@@ -50,8 +50,8 @@ namespace AuthService.Helpers
         public static TokenValidationParameters GetValidationParameters()
         {
             var secretKey = ConfigurationHelper.GetSectionValue("Jwt:Key");
-            var issuer = ConfigurationHelper.GetSectionValue("Jwt:Issuer");
-            var audience = ConfigurationHelper.GetSectionValue("Jwt:Audience");
+            var issuer = Environment.GetEnvironmentVariable("AbonentDataAccountingService_URL");
+            var audience = Environment.GetEnvironmentVariable("AbonentDataAccountingService_URL");
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 
             return new TokenValidationParameters

@@ -1,7 +1,7 @@
 export const urls = {
-    webapi: 'http://abonentdataaccountingservice:80/api',
-    authServ: 'http://authservice:80/api',
-    payServ: 'http://payservice:80/api',
-    nachServ: 'http://nachislservice:80/api',
-    RepairReqServ: 'http://repairrequestsservice:80/api'
+    webapi: process.env.AbonentDataAccountingService_URL + '/api',
+    authServ: process.env.AuthService_URL + '/api',
+    payServ: process.env.PayService_URL + '/api',
+    nachServ: process.env.NachislService_URL + '/api',
+    RepairReqServ: process.env.RepairReqService_URL + '/api'
 };

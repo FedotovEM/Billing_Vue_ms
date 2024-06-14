@@ -26,8 +26,8 @@ builder.Services.AddDbContext<BillingAuthDbContext>(options => options.UseNpgsql
 // Конфигурация
 builder.Configuration.AddJsonFile("appsettings.json");
 var secretKey = ConfigurationHelper.GetSectionValue("Jwt:Key");
-var issuer = ConfigurationHelper.GetSectionValue("Jwt:Issuer");
-var audience = ConfigurationHelper.GetSectionValue("Jwt:Audience");
+var issuer = Environment.GetEnvironmentVariable("AbonentDataAccountingService_URL");
+var audience = Environment.GetEnvironmentVariable("AbonentDataAccountingService_URL");
 
 // Добавление сервисов
 builder.Services.AddAuthentication(options =>

@@ -10,7 +10,7 @@ namespace webapi.Controllers
     public class StatisticsController : ControllerBase
     {
         private readonly BillingAbonentDbContext _context;
-        private readonly string _payServiceURL = ConfigurationHelper.GetSectionValue("PayServiceURL");
+        private readonly string _payServiceURL = Environment.GetEnvironmentVariable("PayService_URL");
 
 
         public StatisticsController(BillingAbonentDbContext context)
