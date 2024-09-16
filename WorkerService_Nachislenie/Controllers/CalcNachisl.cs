@@ -1,4 +1,4 @@
-﻿using WorkerService_Nachislenie.Helpers;
+using WorkerService_Nachislenie.Helpers;
 using Microsoft.EntityFrameworkCore;
 using WorkerService_Nachislenie.Repository;
 
@@ -16,7 +16,7 @@ namespace WorkerService_Nachislenie.Controllers
         {
             try
             {
-                var ConnStr = ConfigurationHelper.GetSectionValue("ConnectionStrings:BillingPostgreSQL");
+                var ConnStr = Environment.GetEnvironmentVariable("BillingPostgreSQL");
                 NachislDbContext contextDB = new NachislDbContext(ConnStr);
 
                 DateTime now = DateTime.Now;
@@ -34,7 +34,7 @@ namespace WorkerService_Nachislenie.Controllers
         {
             try
             {
-                var ConnStr = ConfigurationHelper.GetSectionValue("ConnectionStrings:BillingPostgreSQL");
+                var ConnStr = Environment.GetEnvironmentVariable("BillingPostgreSQL");
                 NachislDbContext contextDB = new NachislDbContext(ConnStr);
 
                 DateTime currentDate = DateTime.Now;

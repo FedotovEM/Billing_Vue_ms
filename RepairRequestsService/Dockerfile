@@ -8,6 +8,9 @@ RUN dotnet publish -c Release -o /publish
 ARG AuthService_URL
 ENV AuthService_URL="${AuthService_URL}"
 
+ARG BillingPostgreSQL
+ENV BillingPostgreSQL="${BillingPostgreSQL}"
+
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
 WORKDIR /publish
 COPY --from=base /publish .

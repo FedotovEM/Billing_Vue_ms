@@ -45,7 +45,7 @@ namespace NachislService.Repository
         public void NachislToFact(string newaccountcd, int newservicecd, int newmonth, int newyear, decimal newvolume)
         {
             string query = $"select nachisl_new_fact('{newaccountcd}'::varchar(6), {newservicecd}::pkfield, {newmonth}::tmonth, {newyear}::tyear, {newvolume}::numeric(10,3));";
-            string connectionString = ConfigurationHelper.GetSectionValue("ConnectionStrings:BillingPostgreSQL");
+            string connectionString = Environment.GetEnvironmentVariable("BillingPostgreSQL");
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
@@ -63,7 +63,7 @@ namespace NachislService.Repository
         public List<AbonentCard> getAbonentCard(string searchAccountcd)
         {
             string query = $"select * from get_abonent_card('{searchAccountcd}'::varchar(6));";
-            string connectionString = ConfigurationHelper.GetSectionValue("ConnectionStrings:BillingPostgreSQL");
+            string connectionString = Environment.GetEnvironmentVariable("BillingPostgreSQL");
             List<AbonentCard> abonentCardList = new List<AbonentCard>();
 
             using (var connection = new NpgsqlConnection(connectionString))

@@ -12,7 +12,7 @@ namespace PayService.Repository
         private string ConnectionString;
         public BillingPayDbContext()
         {
-            ConnectionString = ConfigurationHelper.GetSectionValue("ConnectionStrings:BillingPostgreSQL");
+            ConnectionString = Environment.GetEnvironmentVariable("BillingPostgreSQL");
         }
 
         public BillingPayDbContext(DbContextOptions<BillingPayDbContext> options)
@@ -52,7 +52,7 @@ namespace PayService.Repository
             var sum = paidsum.ToString().Replace(",", ".");
             string query = $"select pay('{BillPaidAccountcd}'::varchar(6), {PaidServicecd}::pkfield, {paymonth}::tmonth, {payyear}::tyear, {volume}::numeric(15,2), {sum}::currency, {newreceptionpointcd}::pkfield);";
 
-            string connectionString = ConfigurationHelper.GetSectionValue("ConnectionStrings:BillingPostgreSQL");
+            string connectionString = Environment.GetEnvironmentVariable("BillingPostgreSQL");
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();

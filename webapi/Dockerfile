@@ -10,6 +10,9 @@ ENV AuthService_URL="${AuthService_URL}"
 ARG PayService_URL
 ENV PayService_URL="${PayService_URL}"
 
+ARG BillingPostgreSQL
+ENV BillingPostgreSQL="${BillingPostgreSQL}"
+
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
 WORKDIR /publish
 COPY --from=base /publish .
