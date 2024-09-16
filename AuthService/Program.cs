@@ -21,7 +21,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddDbContext<BillingAuthDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("BillingPostgreSQL")));
+builder.Services.AddDbContext<BillingAuthDbContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("BillingPostgreSQL")));
 
 // Конфигурация
 builder.Configuration.AddJsonFile("appsettings.json");

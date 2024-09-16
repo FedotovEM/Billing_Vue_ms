@@ -8,6 +8,8 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-worker-service-nachislenie
     restart: 'no'
+    env_file:
+      - ".env"
 
   abonentdataaccountingservice:
     image: rgrty-abonent-data-accounting-service
@@ -28,6 +30,12 @@ services:
       dockerfile: Dockerfile
     container_name: rgrty-vue-app
     restart: 'no'
+    depends_on:
+      - abonentdataaccountingservice
+      - repairrequestsservice
+      - payservice
+      - nachislservice
+      - authservice
     env_file:
       - ".env"
     ports:

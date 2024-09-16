@@ -19,7 +19,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<BillingAbonentDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("BillingPostgreSQL")));
+builder.Services.AddDbContext<BillingAbonentDbContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("BillingPostgreSQL")));
 
 builder.Configuration.AddJsonFile("appsettings.json");
 
@@ -32,6 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors("Cors");
 app.UseHttpsRedirection();
+
+Environment.SetEnvironmentVariable("DOTNET_CLI_FORCE_UTF8_ENCODING", "true");
 
 app.UseAuthentication();
 app.UseAuthorization();

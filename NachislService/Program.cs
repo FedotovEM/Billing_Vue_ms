@@ -19,7 +19,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<BillingDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("BillingPostgreSQL")));
+builder.Services.AddDbContext<BillingDbContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("BillingPostgreSQL")));
 
 // Конфигурация
 builder.Configuration.AddJsonFile("appsettings.json");

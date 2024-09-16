@@ -15,7 +15,7 @@ namespace RepairRequestsService.Repository
         private string ConnectionString;
         public BillingRepairRequestsDbContext()
         {
-            ConnectionString = ConfigurationHelper.GetSectionValue("ConnectionStrings:BillingPostgreSQL");
+            ConnectionString = Environment.GetEnvironmentVariable("BillingPostgreSQL");
         }
 
         public BillingRepairRequestsDbContext(DbContextOptions<BillingRepairRequestsDbContext> options)
@@ -37,7 +37,7 @@ namespace RepairRequestsService.Repository
         public ReportMonthResponse getReportResponse(int searchMonth, int searchYear)
         {
             string query = $"select * from get_request_report_by_month({searchMonth}::tmonth, {searchYear}::tyear);";
-            string connectionString = ConfigurationHelper.GetSectionValue("ConnectionStrings:BillingPostgreSQL");
+            string connectionString = Environment.GetEnvironmentVariable("BillingPostgreSQL");
             List<ReportResponse> ReportResponseList = new List<ReportResponse>();
             DataTable table = new DataTable();
 
