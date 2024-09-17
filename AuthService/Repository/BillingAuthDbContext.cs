@@ -29,7 +29,7 @@ namespace AuthService.Repository
         public void СreateTableBackup()
         {
             string query = $"select create_table_backup();";
-            var connectionString = "Server=localhost;Port=5030;Database=Abonent_Billing;SearchPath=abonent;User Id=postgres;Password=zaq121qaz";
+            var connectionString = Environment.GetEnvironmentVariable("BillingPostgreSQL");
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
@@ -46,7 +46,7 @@ namespace AuthService.Repository
         public void RewriteTableData()
         {
             string query = $"select rewrite_table_data();";
-            var connectionString = "Server=localhost;Port=5030;Database=Abonent_Billing;SearchPath=abonent;User Id=postgres;Password=zaq121qaz";
+            var connectionString = Environment.GetEnvironmentVariable("BillingPostgreSQL");
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
