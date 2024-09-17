@@ -12,7 +12,7 @@ namespace webapi.Repository
         private string ConnectionString;
         public BillingAbonentDbContext()
         {
-            ConnectionString = ConfigurationHelper.GetSectionValue("ConnectionStrings:BillingPostgreSQL");
+            ConnectionString = Environment.GetEnvironmentVariable("BillingPostgreSQL");
         }
 
         public BillingAbonentDbContext(DbContextOptions<BillingAbonentDbContext> options)
