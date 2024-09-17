@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using AuthService.Repository.Models;
+using Npgsql;
 
 #nullable disable
 
@@ -20,6 +21,40 @@ namespace AuthService.Repository
         }
                
         public virtual DbSet<User> Users { get; set; }
+
+        /// <summary>
+        /// Создает резервные копии данных рабочих таблиц
+        /// </summary>
+        /// <returns></returns>
+        public void СreateTableBackup()
+        {
+            string query = $"select create_table_backup();";
+            var connectionString = "Server=localhost;Port=5030;Database=Abonent_Billing;SearchPath=abonent;User Id=postgres;Password=zaq121qaz";
+            using (var connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new NpgsqlCommand(query, connection);
+                var result = command.ExecuteScalar();
+                connection.Close();
+            }
+        }
+
+        /// <summary>
+        /// Перезаписывает исходные данные в рабочие таблицы
+        /// </summary>
+        /// <returns></returns>
+        public void RewriteTableData()
+        {
+            string query = $"select rewrite_table_data();";
+            var connectionString = "Server=localhost;Port=5030;Database=Abonent_Billing;SearchPath=abonent;User Id=postgres;Password=zaq121qaz";
+            using (var connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new NpgsqlCommand(query, connection);
+                var result = command.ExecuteScalar();
+                connection.Close();
+            }
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

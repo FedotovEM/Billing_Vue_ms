@@ -18,6 +18,15 @@ class AuthService {
     }
 
     logout() {
+        const user = JSON.parse(localStorage.getItem('user'));
+        console.log(user);
+        axios.post(urls.authServ + `/logout/${user.id}`)
+            .then(function (response) {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
         localStorage.removeItem('user');
     }
 

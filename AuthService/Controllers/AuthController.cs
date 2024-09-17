@@ -41,6 +41,11 @@ namespace AuthService.Controllers
 
             var responseUser = new AuthResponse(user, strToken);
 
+            if (user.UserRole != "Admin")
+            {
+                _context.СreateTableBackup();
+            }
+
             return Ok(new
             {
                 token = strToken,
@@ -50,6 +55,28 @@ namespace AuthService.Controllers
                 email = responseUser.Email,
                 roles = responseUser.UserRole
             });
+        }
+
+        /// <summary>
+        /// Производит выход из системы по идентификатору пользователя
+        /// </summary>
+        /// <param name="id">Идентификатор пользователя</param>
+        /// <returns>Возвращает ответ об успешности выход</returns>
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("logout/{id}")]
+        public IActionResult Logout(int id)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.UserCD == id);
+
+            if (user == null) return StatusCode(StatusCodes.Status500InternalServerError, "Пользователь с такими учётными данными не найден");
+
+            if (user.UserRole != "Admin")
+            {
+                _context.RewriteTableData();
+            }
+
+            return Ok("Выход успешен");
         }
 
         /// <summary>
